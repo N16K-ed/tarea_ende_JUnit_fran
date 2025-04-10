@@ -19,8 +19,18 @@ class CuentaTest {
     }
 
     @Test
-    void setSaldo() {
+    void getSaldo1() {
+        Cuenta cuentaPedro = new Cuenta("ES20",100);
+        float saldo = cuentaPedro.getSaldo();
+        assertEquals(100,saldo);
     }
+    @Test
+    void getSaldo2() {
+        Cuenta cuentaPedro = new Cuenta("ES20",100);
+        float saldo = cuentaPedro.getSaldo();
+        assertEquals(50,saldo);
+    }
+
 
     @Test
     void ingresarDinero() {
