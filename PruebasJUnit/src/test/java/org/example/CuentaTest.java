@@ -1,10 +1,17 @@
 package org.example;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class CuentaTest {
+    private static Cuenta cuentaPedro;
+
+    @BeforeEach
+    public void nuevaCuenta() {
+        cuentaPedro = new Cuenta("ES20",100);
+    }
 
     @Test
     void getNumero() {
@@ -37,7 +44,15 @@ class CuentaTest {
     }
 
     @Test
-    void extraerDinero() {
+    void extraerDinero_exception() {
+        try{
+            Cuenta cuentaPedro = new Cuenta("ES20",100);
+            cuentaPedro.extraerDinero(120);
+            fail ("ERROR. Se debería haber lanzado una excepción al resultar un saldo negativo");
+        }
+        catch (ArithmeticException ae){ //Prueba correcta
+
+        }
     }
 
     @Test

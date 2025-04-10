@@ -28,9 +28,14 @@ public class Cuenta {
         saldo = saldo + importe;
     }
 
+
     public void extraerDinero(float importe){
-        saldo = saldo - importe;
+        if ((saldo - importe) < 0)
+            throw new java.lang.ArithmeticException ("Saldo negativo");
+        else
+            saldo = saldo - importe;
     }
+
 
     public void mostrarCuenta(){
         System.out.println ("N° cuenta: "+ getNumero());
