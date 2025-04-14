@@ -13,16 +13,25 @@ class CuentaTest {
         cuentaPedro = new Cuenta("ES20",100);
     }
 
+    @AfterEach
+    public void limpiarCuenta() {
+        cuentaPedro = null;
+    }
+
     @Test
     void getNumero() {
+        assertEquals("ES20", cuentaPedro.getNumero());
     }
 
     @Test
     void getSaldo() {
+        assertEquals(100, cuentaPedro.getSaldo());
     }
 
     @Test
     void setNumero() {
+        cuentaPedro.setNumero("ES30");
+        assertEquals("ES30", cuentaPedro.getNumero());
     }
 
     @Test
@@ -41,6 +50,8 @@ class CuentaTest {
 
     @Test
     void ingresarDinero() {
+        cuentaPedro.ingresarDinero(50);
+        assertEquals(150, cuentaPedro.getSaldo());
     }
 
     @Test
@@ -57,5 +68,7 @@ class CuentaTest {
 
     @Test
     void mostrarCuenta() {
+        assertNotNull(cuentaPedro);
+
     }
 }
